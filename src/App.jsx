@@ -7,6 +7,7 @@ import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Contacts from "./components/sections/Contacts";
 import Navbar from './components/layout/Navbar';
+import Preloader from './components/ui/Preloader';
 
 const SinglePagePortfolio = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
       <div className="relative bg-[var(--bg-base)] text-[var(--text-main)] min-h-screen">
+        <Preloader/>
         <Navbar />
         
         <Routes>
