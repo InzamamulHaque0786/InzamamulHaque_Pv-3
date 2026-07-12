@@ -7,7 +7,8 @@ const Hero = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.12,
-        delayChildren: 0.2,
+        // Cut in half: Starts moving while the preloader is still sweeping up
+        delayChildren: 0.5,
       },
     },
   };
@@ -92,7 +93,8 @@ const Hero = () => {
         <motion.div 
           variants={{
             hidden: { opacity: 0, y: 20 },
-            show: { opacity: 1, y: 0, transition: { delay: 0.8, duration: 0.6 } }
+            // Pulled forward so it gracefully fades in as the last text finishes moving
+            show: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 0.6 } }
           }}
           className="mt-16 md:mt-6"
         >
