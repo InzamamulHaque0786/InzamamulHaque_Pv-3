@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+@import "tailwindcss";
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  /* --font-ogg: "Ogg", serif;
+  --font-ogg-text: "Ogg Text TRIAL", serif; */
+  --font-grandslang:"GrandSlang Roman",serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   1. LOCAL FONTS SETUP
+   ========================================================================== */
+/* @font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-RegularItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-Book.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-BookItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-Extrabold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-ExtraboldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg Text TRIAL';
+    src: url('/fonts/OggTextTRIAL-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ogg';
+    src: url('/fonts/OggTRIAL-ThinItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: 'GrandSlang Roman';
+    src: url('/fonts/GrandSlang-Roman.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GrandSlang Roman';
+    src: url('/fonts/grandslang-italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ==========================================================================
+   2. LIGHT DESIGN SYSTEM SPECIFICATIONS (Vivid Corporate Light)
+   ========================================================================== */
+:root {
+  --bg-base: #F8FAFC; 
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F1F5F9;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+  --brand-primary: #674CC4; 
+  --brand-hover: #5034B1;
+  --status-success: #16A34A;
+  --status-warning: #D97706;
+  --status-danger: #DC2626;
+  --border-light: #E2E8F0;
+  --border-focus: #674CC4;
+}
+
+/* ==========================================================================
+   3. DARK DESIGN SYSTEM SPECIFICATIONS (Hostinger Neon Obsidian Premium)
+   ========================================================================== */
+.dark {
+  --bg-base: #050409;
+  --bg-surface: #0E0C17;
+  --bg-surface-hover: #191629;
+  --text-main: #FFFFFF;
+  --text-muted: #A78BFA;
+  --text-inverse: #FFFFFF;
+  --brand-primary: #674CC4;
+  --brand-hover: #8B73E7;
+  --status-success: #00F576;
+  --status-warning: #FFB800;
+  --status-danger: #FF3B3B;
+  --border-light: #201B35;
+  --border-focus: #8B73E7;
+}
+
+/* ==========================================================================
+   4. CSS RESETS & GLOBAL STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
+}
+
+/* ==========================================================================
+   VIEW TRANSITION API (Radial Theme Toggle)
+   ========================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* OUTWARD (Going to Light) */
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+/* INWARD (Going to Dark) */
+.dark::view-transition-old(root) { z-index: 2; }
+.dark::view-transition-new(root) { z-index: 1; }
+
+/* Reusable Glass/Ceramic Class */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   5. MODERN SCROLLBAR
+   ========================================================================== */
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-focus) var(--bg-base);
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 8px;
+  border: 3px solid var(--bg-base); /* Creates a padded/floating effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
