@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const Projects = () => {
+const Works = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
@@ -34,7 +34,7 @@ const Projects = () => {
 
   return (
     <section 
-      id="projects" 
+      id="works" 
       className="relative min-h-screen py-24 px-6 md:px-12"
     >
       {/* Background glow for the glassy effect */}
@@ -125,4 +125,4 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-export default Projects;
+export default Works;

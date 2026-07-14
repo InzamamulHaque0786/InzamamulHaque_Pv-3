@@ -3,13 +3,13 @@ import { motion, useInView } from 'framer-motion';
 import { FaLinkedinIn, FaGithub, FaInstagram, FaPhone } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 
-const Contacts = () => {
+const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-20%" });
 
   return (
     <section 
-      id="contacts" 
+      id="contact" 
       // Changed py-24 to pt-32 pb-10 to clear the navbar and fit the screen
       className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-32 pb-10 overflow-hidden"
     >
@@ -97,4 +97,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default Contact;

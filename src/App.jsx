@@ -4,8 +4,8 @@ import { ReactLenis } from 'lenis/react';
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
-import Projects from "./components/sections/Projects";
-import Contacts from "./components/sections/Contacts";
+import Works from "./components/sections/Works";
+import Contact from "./components/sections/Contact";
 import Navbar from './components/layout/Navbar';
 import Preloader from './components/ui/Preloader';
 
@@ -15,8 +15,8 @@ const SinglePagePortfolio = () => {
       <Hero />
       <About />
       <Skills />
-      <Projects />
-      <Contacts />
+      <Works />
+      <Contact />
     </main>
   );
 };
