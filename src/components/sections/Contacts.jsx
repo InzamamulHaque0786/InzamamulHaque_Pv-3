@@ -66,21 +66,21 @@ const Contacts = () => {
         >
           <div className="flex gap-8 md:gap-12">
             <a 
-              href="#" 
+              href="https://github.com/InzamamulHaque0786" 
               aria-label="GitHub" 
               className="text-[var(--text-main)] hover:text-[var(--brand-primary)] hover:scale-110 hover:-translate-y-1 transition-all duration-300"
             >
               <FaGithub size={32} />
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/inzamamulhaque786/" 
               aria-label="LinkedIn" 
               className="text-[var(--text-main)] hover:text-[var(--brand-primary)] hover:scale-110 hover:-translate-y-1 transition-all duration-300"
             >
               <FaLinkedinIn size={32} />
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/inzamam_1409/" 
               aria-label="Instagram" 
               className="text-[var(--text-main)] hover:text-[var(--brand-primary)] hover:scale-110 hover:-translate-y-1 transition-all duration-300"
             >

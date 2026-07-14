@@ -64,11 +64,11 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <p className="text-sm md:text-base font-bold mb-4 text-[var(--text-muted)] uppercase tracking-widest">
+          {/* <p className="text-sm md:text-base font-bold mb-4 text-[var(--text-muted)] uppercase tracking-widest">
             The Arsenal
-          </p>
-          <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-main)]">
-            Technical <span className="font-ogg italic font-normal text-[var(--brand-primary)]">Expertise</span>
+          </p> */}
+          <h2 className="text-4xl font-grandslang md:text-6xl uppercase font-bold text-[var(--text-main)]">
+            Technical <span className="font-grandslang italic font-normal lowercase text-[var(--brand-primary)]">Expertise</span>
           </h2>
         </motion.div>
 

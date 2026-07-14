@@ -35,7 +35,7 @@ const Navbar = () => {
     }
   };
 
-  const toggleTheme = (e) => {
+const toggleTheme = (e) => {
     const willBeDark = !isDark;
 
     if (!document.startViewTransition) {
@@ -84,7 +84,6 @@ const Navbar = () => {
       }
     });
   };
-
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-6 py-2 flex justify-between items-center">
@@ -130,7 +129,8 @@ const Navbar = () => {
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   className="absolute flex items-center justify-center"
                 >
-                  <Sun size={20} />
+                  
+                  <Moon size={20} />
                 </motion.div>
 
                 <motion.div
@@ -143,7 +143,7 @@ const Navbar = () => {
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   className="absolute flex items-center justify-center"
                 >
-                  <Moon size={20} />
+                  <Sun size={20} />
                 </motion.div>
               </button>
             </MagneticButton>
