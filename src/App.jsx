@@ -8,14 +8,16 @@ import Works from "./components/sections/Works";
 import Contact from "./components/sections/Contact";
 import Navbar from './components/layout/Navbar';
 import Preloader from './components/ui/Preloader';
+import Experience from './components/sections/Experience';
 
 const SinglePagePortfolio = () => {
   return (
     <main>
       <Hero />
       <About />
-      <Skills />
+      <Experience/>
       <Works />
+      <Skills />
       <Contact />
     </main>
   );

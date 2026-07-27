@@ -50,9 +50,9 @@ const Preloader = () => {
           exit={{ opacity: 0, transition: { duration: 0, delay: 1 } }}
           className="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none"
         >
-          {/* The Morphing SVG Background */}
+          {/* The Morphing SVG Background - Updated to #efeae1 */}
           <svg
-            className="absolute inset-0 w-[100vw] h-[100vh] text-[#050505]"
+            className="absolute inset-0 w-[100vw] h-[100vh] text-[#efeae1]"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >

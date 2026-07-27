@@ -10,13 +10,10 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      // Changed py-24 to pt-32 pb-10 to clear the navbar and fit the screen
       className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-32 pb-10 overflow-hidden"
     >
-      {/* Background ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[40rem] h-[20rem] bg-[var(--brand-primary)]/20 rounded-[100%] blur-[120px] pointer-events-none" />
+      {/* Background ambient glow removed completely */}
 
-      {/* Added flex, flex-col, and justify-between to manage inner spacing */}
       <div className="max-w-5xl mx-auto w-full text-center z-10 flex flex-col h-full justify-between" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -24,7 +21,6 @@ const Contact = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center mt-auto"
         >
-          {/* Reduced margins on all text elements */}
           <p className="text-sm md:text-base font-bold mb-4 text-[var(--text-muted)] uppercase tracking-widest">
             What's Next
           </p>
@@ -61,7 +57,6 @@ const Contact = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          // Reduced padding top and gap, added mt-auto to push to bottom naturally
           className="flex flex-col items-center gap-8 border-t border-[var(--border-light)] w-full pt-8 mt-auto"
         >
           <div className="flex gap-8 md:gap-12">

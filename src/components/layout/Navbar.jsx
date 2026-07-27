@@ -1,95 +1,23 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 import MagneticButton from "../ui/MagneticButton";
 import MenuToggle from "../ui/MenuToggle";
 import FullScreenMenu from "./FullScreenMenu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
+  // Force dark mode on mount
   useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.add("dark");
+    localStorage.theme = "dark";
   }, []);
 
-  const applyTheme = (willBeDark) => {
-    if (willBeDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-      setIsDark(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-      setIsDark(false);
-    }
-  };
-
-const toggleTheme = (e) => {
-    const willBeDark = !isDark;
-
-    if (!document.startViewTransition) {
-      applyTheme(willBeDark);
-      return;
-    }
-
-    const x = e.clientX;
-    const y = e.clientY;
-
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
-
-    const transition = document.startViewTransition(() => {
-      applyTheme(willBeDark);
-    });
-
-    transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`
-      ];
-
-      if (willBeDark) {
-        document.documentElement.animate(
-          { clipPath: [...clipPath].reverse() },
-          {
-            duration: 600,
-            easing: "ease-in-out",
-            pseudoElement: "::view-transition-old(root)",
-            fill: "forwards",
-          }
-        );
-      } else {
-        document.documentElement.animate(
-          { clipPath: clipPath },
-          {
-            duration: 600,
-            easing: "ease-in-out",
-            pseudoElement: "::view-transition-new(root)",
-            fill: "forwards",
-          }
-        );
-      }
-    });
-  };
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-6 py-2 flex justify-between items-center">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-6 py-2 flex justify-between items-center pointer-events-none">
         
         {/* 1. LOGO - Fades out completely when menu opens */}
-        <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100'}`}>
+        <div className={`pointer-events-auto transition-all duration-700 ease-[0.65,0,0.35,1] ${isOpen ? 'opacity-0 scale-95' : 'opacity-100'}`}>
           <MagneticButton>
             <div className="flex flex-col text-[var(--text-main)] uppercase tracking-widest leading-[0.85] pl-4">
               <span>INZAMAMUL</span>
@@ -109,53 +37,32 @@ const toggleTheme = (e) => {
           </MagneticButton>
         </div>
 
-        <div className="flex items-center gap-4 z-50">
+        <div className="flex items-center gap-4 z-50 pointer-events-auto">
           
-          {/* 2. DARK MODE TOGGLE - Fades out completely when menu opens */}
-          <div className={`transition-all duration-500 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100'}`}>
-            <MagneticButton>
-              <button
-                onClick={toggleTheme}
-                className="relative w-10 h-10 flex items-center justify-center rounded-full text-[var(--text-main)] hover:text-[var(--brand-primary)] transition-all duration-300 focus:outline-none overflow-hidden"
-                aria-label="Toggle Dark Mode"
-              >
-                <motion.div
-                  initial={false}
-                  animate={{
-                    scale: isDark ? 0 : 1,
-                    rotate: isDark ? 90 : 0,
-                    opacity: isDark ? 0 : 1,
-                  }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="absolute flex items-center justify-center"
-                >
-                  
-                  <Moon size={20} />
-                </motion.div>
-
-                <motion.div
-                  initial={false}
-                  animate={{
-                    scale: isDark ? 1 : 0,
-                    rotate: isDark ? 0 : -90,
-                    opacity: isDark ? 1 : 0,
-                  }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="absolute flex items-center justify-center"
-                >
-                  <Sun size={20} />
-                </motion.div>
-              </button>
-            </MagneticButton>
-          </div>
-
-          {/* 3. MENU TOGGLE - Stays visible so you can close the menu */}
+          {/* MENU TOGGLE - Now adds a subtle dark circular background when open */}
           <MagneticButton
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-[var(--text-main)] focus:outline-none hover:text-[var(--brand-primary)] transition-colors"
+            className={`p-4 rounded-full focus:outline-none transition-all duration-700 ease-[0.65,0,0.35,1] ${
+              isOpen 
+                ? 'bg-[#1e2125]/10 hover:bg-[#1e2125]/20' // Creates a beautifully subtle darker shade on the light menu
+                : 'bg-transparent hover:bg-[#efeae1]/10' 
+            }`}
             aria-label="Toggle Menu"
           >
-            <MenuToggle isOpen={isOpen} />
+            {/* 
+              This wrapper reaches INSIDE the MenuToggle component. 
+              It forces any spans (CSS lines) or paths (SVG lines) to transition 
+              smoothly between white and dark over 700ms.
+            */}
+            <div 
+              className={`flex items-center justify-center transition-colors duration-700 ease-[0.65,0,0.35,1] [&_span]:transition-colors [&_span]:duration-700 [&_path]:transition-colors [&_path]:duration-700 ${
+                isOpen 
+                  ? 'text-[#1e2125] [&_span]:bg-[#1e2125] [&_path]:stroke-[#1e2125] [&_path]:fill-[#1e2125]' 
+                  : 'text-[#efeae1] [&_span]:bg-[#efeae1] [&_path]:stroke-[#efeae1] [&_path]:fill-[#efeae1]'
+              }`}
+            >
+              <MenuToggle isOpen={isOpen} />
+            </div>
           </MagneticButton>
         </div>
       </nav>
