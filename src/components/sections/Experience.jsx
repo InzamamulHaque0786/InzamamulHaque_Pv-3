@@ -1,9 +1,23 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const Experience = () => {
   const ref = useRef(null);
+  
+  // Controls the initial fade-in for the whole section
   const isInView = useInView(ref, { once: true, margin: "-10%" });
+
+  // Tracks the scroll progress specifically while this section is on screen
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // Maps scroll progress to continuous horizontal movement
+  // Work moves Left to Right (-80px to 80px)
+  const workX = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  // Experience moves Right to Left (80px to -80px)
+  const experienceX = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   const experienceData = [
     {
@@ -38,8 +52,6 @@ const Experience = () => {
       id="experience"
       className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 py-24 overflow-x-hidden"
     >
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-[var(--brand-primary)]/15 rounded-full blur-[150px] pointer-events-none" />
-
       <div className="max-w-4xl mx-auto w-full" ref={ref}>
         {/* Section Heading matching About & Works sizing */}
         <motion.div
@@ -48,11 +60,23 @@ const Experience = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-24 text-center w-full"
         >
-          <h2 className="font-grandslang text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1.1]">
-            Work{" "}
-            <span className="font-grandslang italic lowercase font-normal text-[var(--text-main)]">
+          <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[.9]">
+            {/* Work - Moves Left to Right */}
+            <motion.span 
+              style={{ x: workX, display: "inline-block" }}
+            >
+              <span className="italic">Wo</span>rk
+            </motion.span>
+            
+            <br />
+            
+            {/* Experience - Moves Right to Left */}
+            <motion.span 
+              style={{ x: experienceX, display: "inline-block" }}
+              className="font-grandslang italic lowercase font-normal text-[var(--text-main)]"
+            >
               Experience
-            </span>
+            </motion.span>
           </h2>
         </motion.div>
 
@@ -101,7 +125,7 @@ const Experience = () => {
                       key={itemIdx}
                       className="flex items-start gap-3 text-sm md:text-base text-[var(--text-muted)] leading-relaxed"
                     >
-                      <span className="text-[var(--brand-primary)]  flex-shrink-0">
+                      <span className="text-[var(--brand-primary)] flex-shrink-0">
                         ✦
                       </span>
                       <span className="break-words">{item}</span>

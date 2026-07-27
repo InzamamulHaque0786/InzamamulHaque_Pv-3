@@ -9,12 +9,14 @@ import Contact from "./components/sections/Contact";
 import Navbar from './components/layout/Navbar';
 import Preloader from './components/ui/Preloader';
 import Experience from './components/sections/Experience';
+import PortfolioMarquee from './components/ui/PortfolioMarquee';
 
 const SinglePagePortfolio = () => {
   return (
     <main>
       <Hero />
       <About />
+      <PortfolioMarquee/>
       <Experience/>
       <Works />
       <Skills />

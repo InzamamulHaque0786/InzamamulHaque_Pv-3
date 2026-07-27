@@ -73,31 +73,6 @@ const FullScreenMenu = ({ isOpen, setIsOpen }) => {
             // CHANGED HERE: h-[75vh] and justify-evenly to fill mobile space, reverts to normal on desktop
             className="flex flex-col items-center justify-evenly h-[75vh] md:h-auto md:justify-center md:gap-8 pb-20 md:pb-0 w-full mt-4 md:mt-0"
           >
-            {/* ABOUT */}
-            <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
-              <motion.div variants={linkVariants}>
-                <a 
-                  href="#about"
-                  onClick={() => setIsOpen(false)}
-                  className="font-grandslang  text-center uppercase text-7xl md:text-8xl text-[#1e2125] hover:text-[#716a5c] transition-colors inline-block"
-                >
-                  <span className='italic'>A</span>bou<span className='italic'>t</span>
-                </a>
-              </motion.div>
-            </li>
-
-            {/* SKILLS */}
-            <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
-              <motion.div variants={linkVariants}>
-                <a 
-                  href="#skills"
-                  onClick={() => setIsOpen(false)}
-                  className="font-grandslang  text-center uppercase text-7xl md:text-8xl text-[#1e2125] hover:text-[#716a5c] transition-colors inline-block"
-                >
-                  ski<span className='italic'>ll</span>s
-                </a>
-              </motion.div>
-            </li>
 
             {/* WORKS */}
             <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
@@ -112,6 +87,48 @@ const FullScreenMenu = ({ isOpen, setIsOpen }) => {
               </motion.div>
             </li>
 
+            {/* ABOUT */}
+            <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
+              <motion.div variants={linkVariants}>
+                <a 
+                  href="#about"
+                  onClick={() => setIsOpen(false)}
+                  className="font-grandslang  text-center uppercase text-7xl md:text-8xl text-[#1e2125] hover:text-[#716a5c] transition-colors inline-block"
+                >
+                  <span className='italic'>A</span>bou<span className='italic'>t</span>
+                </a>
+              </motion.div>
+            </li>
+          
+             {/* Experience */}
+           <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
+              <motion.div variants={linkVariants}>
+                <a 
+                  href="#experience"
+                  onClick={() => setIsOpen(false)}
+                  className="font-grandslang  text-center uppercase text-7xl md:text-8xl text-[#1e2125] hover:text-[#716a5c] transition-colors inline-block"
+                >
+                  c<span className='italic'>a</span>r<span className='italic'></span>eer
+                </a>
+              </motion.div>
+            </li>
+          
+
+            {/* SKILLS */}
+            <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
+              <motion.div variants={linkVariants}>
+                <a 
+                  href="#skills"
+                  onClick={() => setIsOpen(false)}
+                  className="font-grandslang  text-center uppercase text-7xl md:text-8xl text-[#1e2125] hover:text-[#716a5c] transition-colors inline-block"
+                >
+                  ski<span className='italic'>ll</span>s
+                </a>
+              </motion.div>
+            </li>
+
+            
+
             {/* CONTACT */}
             <li className="overflow-hidden py-4 px-8 -my-4 -mx-8">
               <motion.div variants={linkVariants}>
@@ -120,11 +137,13 @@ const FullScreenMenu = ({ isOpen, setIsOpen }) => {
                   onClick={() => setIsOpen(false)}
                   className="font-grandslang text-center uppercase text-7xl md:text-8xl text-[#1e2125] hover:text-[#716a5c] transition-colors inline-block"
                 >
-                  <span className='italic'>C</span>ont<span className='italic'>A</span>ct
+                  <span className='italic'>Conta</span>c<span className='italic'>t</span>
                 </a>
               </motion.div>
             </li>
           </motion.ul>
+           
+           
 
           {/* Static Icons Container */}
           <div className="absolute bottom-8 left-0 w-full flex md:hidden justify-center items-center gap-8">

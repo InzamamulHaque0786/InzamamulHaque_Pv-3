@@ -80,7 +80,7 @@ const Skills = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-24 text-center"
         >
-          <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1.1]">
+          <h2 className="py-6 font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[.9]">
             Technical <span className="font-grandslang italic font-normal lowercase text-[var(--text-main)]">Expertise</span>
           </h2>
         </motion.div>

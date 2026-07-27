@@ -5,7 +5,7 @@ const Works = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
-  // Set this initial state to exactly match your main site background color hex
+  // Initial state matches your global dark background perfectly
   const [bgColor, setBgColor] = useState('#1e2125'); 
 
   const projectList = [
@@ -43,17 +43,21 @@ const Works = () => {
       id="works" 
       animate={{ backgroundColor: bgColor }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="relative min-h-screen py-24 px-6 md:px-12 transition-colors"
+      className="relative min-h-screen pt-48 pb-24 px-6 md:pt-64 md:pb-24 md:px-12 transition-colors"
     >
       {/* 
         =========================================
-        MAGIC BLEND FADES (Top & Bottom)
-        Height significantly increased to md:h-[500px] 
-        for an ultra-smooth, seamless transition.
+        FORCED HEIGHT FADES
         =========================================
       */}
-      <div className="absolute top-0 left-0 w-full h-72 md:h-[500px] bg-gradient-to-b from-[var(--bg-base)] to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 w-full h-72 md:h-[500px] bg-gradient-to-t from-[var(--bg-base)] to-transparent pointer-events-none z-10" />
+      <div 
+        className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#1e2125] to-[#1e2125]/0 pointer-events-none z-10" 
+        style={{ height: '800px' }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[#1e2125] to-[#1e2125]/0 pointer-events-none z-10" 
+        style={{ height: '800px' }}
+      />
 
       {/* Background glow for the glassy effect */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[var(--brand-primary)]/15 rounded-full blur-[150px] pointer-events-none z-0" />
@@ -63,11 +67,12 @@ const Works = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          // Added negative margin here (-mt-10 md:-mt-16) to pull the title up into the black fade
-          className="-mt-10 md:-mt-16 mb-24 text-center relative z-30"
+          // CHANGED HERE: Increased bottom margin to mb-40 md:mb-56 to create massive padding after the title
+          className="mb-40 md:mb-56 text-center relative z-30"
         >
-          <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1.1]">
-            Featured <span className="font-grandslang italic lowercase font-normal text-[var(--text-main)]">Works</span>
+          <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1]">
+            Featured <br />
+             <span className="font-grandslang italic lowercase font-normal text-[var(--text-main)]">Works</span>
           </h2>
         </motion.div>
 
