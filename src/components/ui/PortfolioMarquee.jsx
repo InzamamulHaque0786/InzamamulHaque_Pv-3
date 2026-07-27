@@ -5,7 +5,7 @@ const PortfolioMarquee = () => {
   const items = [1, 2, 3, 4, 5, 6];
 
   return (
-    <section className="py-64 overflow-hidden bg-[#1e2125] flex items-center relative">
+    <section className="py-24 md:p-64 overflow-hidden bg-[#1e2125] flex items-center relative">
       
       {/* 
         Optional Edge Fades: 

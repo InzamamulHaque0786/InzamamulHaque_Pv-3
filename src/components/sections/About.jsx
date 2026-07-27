@@ -20,9 +20,7 @@ const About = () => {
       <div className="max-w-5xl mx-auto w-full" ref={ref}>
         <div className="flex flex-col items-center">
           
-          {/* 
-            HEADING: ONLY ONCE 
-          */}
+          {/* HEADING: ONLY ONCE */}
           <motion.h2 
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,19 +35,18 @@ const About = () => {
             </span>
           </motion.h2>
 
-          <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+          {/* 
+            CHANGED: Increased mobile gap to gap-40 (160px) to absorb the 150px drop.
+            Desktop remains completely unaffected with lg:gap-12.
+          */}
+          <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-40 lg:gap-12">
             
-            {/* 
-              BIO TEXT: ALWAYS (But ignores the top of the screen!)
-              The margin "10000px 0px -20% 0px" ensures it triggers when it comes up from the bottom, 
-              but NEVER animates out when it leaves the top. It only reverses when going back down.
-            */}
+            {/* BIO TEXT */}
             <motion.p 
               initial={{ opacity: 0, y: 150 }}
               whileInView={{ opacity: 1, y: 0 }}
-              // Top, Right, Bottom, Left
-              viewport={{ once: false, margin: "10000px 0px -25% 0px" }} 
-              // Very slow and dramatic
+              // CHANGED: Margin reduced to -10% so it triggers much earlier and smoother on mobile screens
+              viewport={{ once: false, margin: "10000px 0px -10% 0px" }} 
               transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
               className="font-sans text-1xl md:text-2xl lg:text-2xl text-[var(--text-main)] max-w-3xl"
             >
@@ -62,9 +59,7 @@ const About = () => {
               a great user experience.
             </motion.p>
 
-            {/* 
-              BADGE: ONLY ONCE
-            */}
+            {/* BADGE: ONLY ONCE */}
             <motion.div 
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
