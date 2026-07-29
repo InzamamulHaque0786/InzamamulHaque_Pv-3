@@ -2,9 +2,6 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const Works = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
-
   // Initial state matches your global dark background perfectly
   const [bgColor, setBgColor] = useState('#1e2125'); 
 
@@ -16,7 +13,8 @@ const Works = () => {
       tags: ['TypeScript', 'React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'Prisma ORM', 'Redis', 'BullMQ', 'Docker'],
       link: 'https://chronos-desk-u7oe-cyan.vercel.app/',
       image: '/project1.png',
-      color: '#1A2A40' // Lighter Slate/Navy Blue
+      color: '#364f71' // Lighter Slate/Navy Blue
+      // color: '#1A2A40' // Lighter Slate/Navy Blue
     },
     {
       id: 2,
@@ -25,7 +23,8 @@ const Works = () => {
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Leaflet.js', 'Gemini AI', 'Cloudinary'],
       link: 'https://guard-lens.vercel.app/',
       image: '/project2.png',
-      color: '#2A161E' // Lighter Muted Burgundy
+      color: '#325544' // Lighter Pine/Teal Green
+      // color: '#162B21' // Lighter Pine/Teal Green
     },
     {
       id: 3,
@@ -34,7 +33,8 @@ const Works = () => {
       tags: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'MongoDB'], 
       link: 'https://task-flow-sooty-two-36.vercel.app/landingpage',
       image: '/project3.png',
-      color: '#162B21' // Lighter Pine/Teal Green
+      color: '#594476' // Deep Midnight Purple
+      // color: '#1E152A' // Deep Midnight Purple
     }
   ];
 
@@ -62,12 +62,20 @@ const Works = () => {
       {/* Background glow for the glassy effect */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[var(--brand-primary)]/15 rounded-full blur-[150px] pointer-events-none z-0" />
 
-      <div className="max-w-5xl mx-auto w-full relative z-20" ref={ref}>
+      <div className="max-w-5xl mx-auto w-full relative z-20">
+        {/* 
+          =========================================
+          BEAUTIFUL SKEW POP ANIMATION (FIXED)
+          - Switched to whileInView for precise element tracking
+          - Margin changed to -25% so it waits to enter the screen
+          - Duration slowed to 1.5s for a smoother read
+          =========================================
+        */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          // CHANGED HERE: Increased bottom margin to mb-40 md:mb-56 to create massive padding after the title
+          initial={{ opacity: 0, y: 100, skewY: 8 }}
+          whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+          viewport={{ once: true, margin: "-25%" }}
+          transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-40 md:mb-56 text-center relative z-30"
         >
           <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1]">

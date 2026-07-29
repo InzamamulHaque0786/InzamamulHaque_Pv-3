@@ -39,26 +39,27 @@ const Navbar = () => {
 
         <div className="flex items-center gap-4 z-50 pointer-events-auto">
           
-          {/* MENU TOGGLE - Now adds a subtle dark circular background when open */}
+          {/* MENU TOGGLE 
+              FIX 1: Changed transition-all to transition-colors.
+              This stops the 700ms delay from applying to the physical magnetic mouse tracking.
+          */}
           <MagneticButton
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-4 rounded-full focus:outline-none transition-all duration-700 ease-[0.65,0,0.35,1] ${
+            className={`p-4 rounded-full focus:outline-none transition-colors duration-700 ease-[0.65,0,0.35,1] ${
               isOpen 
-                ? 'bg-[#1e2125]/10 hover:bg-[#1e2125]/20' // Creates a beautifully subtle darker shade on the light menu
-                : 'bg-transparent hover:bg-[#efeae1]/10' 
+                ? 'bg-[#1e21258b]/10' // Subtle dark circular background
+                : 'bg-transparent' 
             }`}
             aria-label="Toggle Menu"
           >
             {/* 
-              This wrapper reaches INSIDE the MenuToggle component. 
-              It forces any spans (CSS lines) or paths (SVG lines) to transition 
-              smoothly between white and dark over 700ms.
+              FIX 2: Strict color definitions for Open (Black) and Closed (White).
             */}
             <div 
               className={`flex items-center justify-center transition-colors duration-700 ease-[0.65,0,0.35,1] [&_span]:transition-colors [&_span]:duration-700 [&_path]:transition-colors [&_path]:duration-700 ${
                 isOpen 
-                  ? 'text-[#1e2125] [&_span]:bg-[#1e2125] [&_path]:stroke-[#1e2125] [&_path]:fill-[#1e2125]' 
-                  : 'text-[#efeae1] [&_span]:bg-[#efeae1] [&_path]:stroke-[#efeae1] [&_path]:fill-[#efeae1]'
+                  ? 'text-[#1e2125] [&_span]:bg-[#1e2125] [&_path]:stroke-[#1e2125] [&_path]:fill-[#1e2125]' // Cross is Black
+                  : 'text-[#ffff] [&_span]:bg-[#ffff] [&_path]:stroke-[#ffff] [&_path]:fill-[#ffff]' // Bars are White
               }`}
             >
               <MenuToggle isOpen={isOpen} />

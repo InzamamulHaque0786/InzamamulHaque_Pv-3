@@ -103,10 +103,10 @@ const Experience = () => {
                 {/* Header Information */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-light)] pb-6 text-left">
                   <div className="min-w-0">
-                    <h3 className="font-grandslang text-xl sm:text-2xl md:text-3xl text-[var(--text-main)] uppercase tracking-wide break-words">
+                    <h3 className="font-cardo  font-extrabold text-xl sm:text-2xl md:text-3xl text-[var(--text-main)] uppercase tracking-wide break-words">
                       {exp.role}
                     </h3>
-                    <p className="text-sm sm:text-base font-medium text-[var(--brand-primary)] mt-1 break-words">
+                    <p className="text-sm italic sm:text-base font-medium text-[var(--brand-primary)] mt-1 break-words">
                       {exp.company}{" "}
                       <span className="text-[var(--text-muted)] font-normal">
                         • {exp.location}

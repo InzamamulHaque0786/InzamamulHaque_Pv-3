@@ -1,9 +1,21 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const Skills = () => {
   const ref = useRef(null);
+  
+  // Controls the initial fade-in for the whole section
   const isInView = useInView(ref, { once: true, margin: "-10%" });
+
+  // Tracks the scroll progress specifically while this section is on screen
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // Maps scroll progress to continuous horizontal movement
+  const leftX = useTransform(scrollYProgress, [0, 1], [-80, 90]); // Moves Left to Right
+  const rightX = useTransform(scrollYProgress, [0, 1], [50, -80]); // Moves Right to Left
 
   // Grouped with monochrome-ready Devicon classes
   const skillCategories = [
@@ -67,21 +79,35 @@ const Skills = () => {
   return (
     <section 
       id="skills" 
-      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 py-24"
+      // Added overflow-x-hidden to prevent horizontal scrollbars from the animation
+      className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 py-24 overflow-x-hidden"
     >
-      <div className="absolute top-1/3 right-0 w-80 h-80 bg-[var(--brand-primary)]/20 rounded-full blur-[150px] pointer-events-none" />
-
       <div className="max-w-4xl mx-auto w-full" ref={ref}>
         
-        {/* Main Section Header matching About Me sizing */}
+        {/* Main Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-24 text-center"
+          className="mb-24 text-center w-full"
         >
           <h2 className="py-6 font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[.9]">
-            Technical <span className="font-grandslang italic font-normal lowercase text-[var(--text-main)]">Expertise</span>
+            {/* Technical - Moves Left to Right */}
+            <motion.span 
+              style={{ x: leftX, display: "inline-block" }}
+            >
+              Technical
+            </motion.span>
+            
+            <br />
+            
+            {/* Expertise - Moves Right to Left */}
+            <motion.span 
+              style={{ x: rightX, display: "inline-block" }}
+              className="font-grandslang italic font-normal lowercase text-[var(--text-main)]"
+            >
+              Expertise
+            </motion.span>
           </h2>
         </motion.div>
 

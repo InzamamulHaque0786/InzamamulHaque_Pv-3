@@ -10,10 +10,12 @@ import Navbar from './components/layout/Navbar';
 import Preloader from './components/ui/Preloader';
 import Experience from './components/sections/Experience';
 import PortfolioMarquee from './components/ui/PortfolioMarquee';
+import CustomCursor from './components/ui/CustomCursor';
 
 const SinglePagePortfolio = () => {
   return (
     <main>
+      <CustomCursor/>
       <Hero />
       <About />
       <PortfolioMarquee/>

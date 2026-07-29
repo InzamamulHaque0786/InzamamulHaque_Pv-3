@@ -1,11 +1,23 @@
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { FaLinkedinIn, FaGithub, FaInstagram, FaPhone } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-20%" });
+
+  // 1. Track the scroll progress of this specific section
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // 2. Map the scroll progress to horizontal movement (Parallax effect)
+  // "something" moves Left to Right
+  const somethingX = useTransform(scrollYProgress, [0, 1], [-30, 80]); 
+  // "TOGETHER" moves Right to Left
+  const togetherX = useTransform(scrollYProgress, [0, 1], [80, -50]);
 
   return (
     <section 
@@ -21,43 +33,85 @@ const Contact = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center mt-auto"
         >
-          <p className="text-sm md:text-base font-bold mb-4 text-[var(--text-muted)] uppercase tracking-widest">
-            What's Next
-          </p>
           
-          <h2 className="font-grandslang text-6xl md:text-8xl lg:text-9xl text-[var(--text-main)] uppercase tracking-tight leading-[1.1] mb-4">
-            Get In Touch
-          </h2>
+          {/* 
+            =========================================
+            NEW TYPOGRAPHY LAYOUT 
+            Replicated exactly from the provided design inspiration
+            =========================================
+          */}
+          <div className="flex flex-col items-center justify-center mb-14 w-full">
+            
+            {/* Top Row: Let's create something */}
+            <div className="flex items-center justify-center gap-3 md:gap-5">
+              <div className="flex  flex-col text-right font-cardo italic text-3xl md:text-4xl lg:text-6xl leading-[0.9] text-[var(--text-main)]">
+                <span>Let's</span>
+                <span>create</span>
+              </div>
+              
+              {/* ANIMATED: something (Left to Right) */}
+              <motion.span 
+                style={{ x: somethingX, display: "inline-block" }}
+                className="font-cardo italic lowercase text-7xl md:text-8xl lg:text-[9.5rem] text-[var(--text-main)] leading-none tracking-tight"
+              >
+                something
+              </motion.span>
+            </div>
 
-          <p className="font-grandslang italic text-3xl md:text-4xl lg:text-5xl text-[var(--text-muted)] mb-10 max-w-3xl">
-            Let's build something extraordinary together.
-          </p>
+            {/* Middle Row: MEANINGFUL (Static) */}
+            <h2 className="font-cardo italic uppercase text-5xl md:text-[6.5rem] lg:text-[9.5rem] text-[var(--text-main)] leading-[0.9] tracking-tight mt-2 md:mt-4">
+              MEANINGFUL
+            </h2>
 
-          <div className="flex flex-col items-center gap-6 mb-14">
+            {/* Bottom Row: TOGETHER (but not Forever) */}
+            <div className="flex items-baseline justify-center gap-2 md:gap-4 mt-4 md:mt-6">
+              
+              {/* ANIMATED: TOGETHER (Right to Left) */}
+              <motion.span 
+                style={{ x: togetherX, display: "inline-block" }}
+                className="font-cardo italic font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl text-[var(--text-main)] tracking-wider"
+              >
+                TOGETHER
+              </motion.span>
+            
+            </div>
+            
+          </div>
+
+          {/* 
+            =========================================
+            CONTACT DETAILS (UNCHANGED)
+            =========================================
+          */}
+          <div className="flex flex-col items-center gap-6 md:gap-3 mb-14">
             <a 
               href="mailto:inzamamulhaque0614@gmail.com"
-              className="group flex items-center gap-4 text-xl md:text-2xl font-medium text-[var(--text-main)] hover:text-[var(--brand-primary)] transition-colors duration-300"
+              className="group flex items-center gap-4 text-sm md:text-xl font-medium text-[var(--text-main)] hover:text-[var(--brand-primary)] transition-colors duration-300"
             >
-              <SiGmail className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
+              <SiGmail className="w-6 h-6 md:w-8 md:h-8 transition-transform" />
               <span>inzamamulhaque0614@gmail.com</span>
             </a>
 
             <a 
               href="tel:+916207456425"
-              className="group flex items-center gap-4 text-xl md:text-2xl font-medium text-[var(--text-main)] hover:text-[var(--brand-primary)] transition-colors duration-300"
+              className="group flex items-center gap-4 text-sm md:text-xl font-medium text-[var(--text-main)] hover:text-[var(--brand-primary)] transition-colors duration-300"
             >
-              <FaPhone className="w-6 h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform" />
+              <FaPhone className="w-6 h-6 md:w-8 md:h-8 transition-transform" />
               <span>+91 6207456425</span>
             </a>
           </div>
         </motion.div>
 
-        {/* Footer Icons & Copyright */}
+        {/* 
+          =========================================
+          FOOTER (UNCHANGED)
+          =========================================
+        */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-col items-center gap-8 border-t border-[var(--border-light)] w-full pt-8 mt-auto"
+          className="flex flex-col items-center gap-2 border-t border-[var(--border-light)] w-full pt-8 mt-auto"
         >
           <div className="flex gap-8 md:gap-12">
             <a 
