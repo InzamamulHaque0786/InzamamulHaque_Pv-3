@@ -103,11 +103,20 @@ html {
 
 
 /* Hides the default arrow everywhere */
-body {
+/* body {
   cursor: none;
 }
-
-/* Brings the native "hand" pointer back ONLY when hovering over clickable items */
 a, button, [class*="cursor-pointer"] {
   cursor: pointer;
+} */
+
+/* Only hide the default cursor on devices with a real mouse/trackpad */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a, button, [class*="cursor-pointer"] {
+    cursor: pointer;
+  }
 }

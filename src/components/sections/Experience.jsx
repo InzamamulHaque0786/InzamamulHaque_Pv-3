@@ -15,9 +15,9 @@ const Experience = () => {
 
   // Maps scroll progress to continuous horizontal movement
   // Work moves Left to Right (-80px to 80px)
-  const workX = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const workX = useTransform(scrollYProgress, [0, 1], [-50, 90]);
   // Experience moves Right to Left (80px to -80px)
-  const experienceX = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const experienceX = useTransform(scrollYProgress, [0, 1], [30, -90]);
 
   const experienceData = [
     {
@@ -75,7 +75,7 @@ const Experience = () => {
               style={{ x: experienceX, display: "inline-block" }}
               className="font-grandslang italic lowercase font-normal text-[var(--text-main)]"
             >
-              Experience
+              <span className="uppercase">E</span>xperience
             </motion.span>
           </h2>
         </motion.div>

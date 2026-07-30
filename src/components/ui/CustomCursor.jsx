@@ -4,8 +4,16 @@ import { motion } from 'framer-motion';
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false); // ADDED
 
   useEffect(() => {
+    // ADDED: Detect if it's a touch device (phones/tablets)
+    const checkTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+    setIsTouchDevice(checkTouch);
+
+    // ADDED: If it IS a touch device, skip adding event listeners completely
+    if (checkTouch) return;
+
     const updateMousePosition = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -31,6 +39,9 @@ const CustomCursor = () => {
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
+
+  // ADDED: If it's a mobile/touch device, don't render the custom cursor at all
+  if (isTouchDevice) return null;
 
   // Base size is 12px. Hover size is 72px (which is exactly scale: 6)
   const cursorSize = isHovering ? 72 : 12;

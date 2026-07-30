@@ -26,12 +26,12 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15%" }} 
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center font-grandslang py-8 text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[.7] mb-12"
+            className="text-center font-grandslang py-8 text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1] mb-12"
           >
             About 
             <br />
             <span className="font-grandslang italic lowercase font-normal text-[var(--text-main)]">
-              me
+              <span className="uppercase">M</span>e
             </span>
           </motion.h2>
 
@@ -68,7 +68,7 @@ const About = () => {
               className="flex-shrink-0 self-center lg:self-center"
             >
               <a
-                href="https://drive.google.com/file/d/1qFGxCJUR_QD6amhWaP4ehub8r8G1Fn_n/view?usp=sharing"
+                href="https://drive.google.com/file/d/1HRzOS4hvjtxzXqpbYLrS7jFouia1Za8N/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative flex items-center justify-center w-52 h-52 select-none cursor-pointer group"

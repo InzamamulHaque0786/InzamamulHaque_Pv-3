@@ -14,8 +14,8 @@ const Skills = () => {
   });
 
   // Maps scroll progress to continuous horizontal movement
-  const leftX = useTransform(scrollYProgress, [0, 1], [-80, 90]); // Moves Left to Right
-  const rightX = useTransform(scrollYProgress, [0, 1], [50, -80]); // Moves Right to Left
+  const leftX = useTransform(scrollYProgress, [0, 1], [-40, 90]); // Moves Left to Right
+  const rightX = useTransform(scrollYProgress, [0, 1], [40, -90]); // Moves Right to Left
 
   // Grouped with monochrome-ready Devicon classes
   const skillCategories = [
@@ -106,7 +106,8 @@ const Skills = () => {
               style={{ x: rightX, display: "inline-block" }}
               className="font-grandslang italic font-normal lowercase text-[var(--text-main)]"
             >
-              Expertise
+              
+              <span className='uppercase'>C</span>ompetencies
             </motion.span>
           </h2>
         </motion.div>
@@ -128,7 +129,7 @@ const Skills = () => {
               >
                 
                 {/* Category Heading */}
-                <h3 className="text-xl md:text-2xl font-semibold text-[var(--text-main)] mb-8 tracking-wide uppercase font-sans">
+                <h3 className="text-xl md:text-2xl  text-[var(--text-main)] mb-8 tracking-wide uppercase font-sans">
                   {category.title}
                 </h3>
                 

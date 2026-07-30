@@ -78,9 +78,9 @@ const Works = () => {
           transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-40 md:mb-56 text-center relative z-30"
         >
-          <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1]">
+          <h2 className="font-grandslang text-5xl md:text-7xl lg:text-8xl text-[var(--brand-primary)] uppercase tracking-tight leading-[1.2]">
             Featured <br />
-             <span className="font-grandslang italic lowercase font-normal text-[var(--text-main)]">Works</span>
+             <span className="font-grandslang italic lowercase font-normal text-[var(--text-main)]"><span className='uppercase'>W</span>orks</span>
           </h2>
         </motion.div>
 
@@ -143,7 +143,7 @@ const ProjectCard = ({ project, setBgColor }) => {
       {/* Text Content Area */}
       <div className="w-full max-w-3xl flex flex-col items-start gap-6 px-2 md:px-0">
         <div>
-          <h3 className="font-grandslang text-5xl md:text-6xl lg:text-7xl text-[var(--text-main)] tracking-tight mb-4 leading-[1.1]">
+          <h3 className="font-grandslang text-4xl md:text-5xl lg:text-6xl text-[var(--text-main)] tracking-tight mb-4 leading-[1.1]">
             {project.title}
           </h3>
           <p className="text-sm md:text-sm text-[var(--text-muted)] uppercase font-normal tracking-wide max-w-3xl">

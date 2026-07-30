@@ -15,9 +15,9 @@ const Contact = () => {
 
   // 2. Map the scroll progress to horizontal movement (Parallax effect)
   // "something" moves Left to Right
-  const somethingX = useTransform(scrollYProgress, [0, 1], [-30, 80]); 
+  const somethingX = useTransform(scrollYProgress, [0, 1], [-30, 50]); 
   // "TOGETHER" moves Right to Left
-  const togetherX = useTransform(scrollYProgress, [0, 1], [80, -50]);
+  const togetherX = useTransform(scrollYProgress, [0, 1], [60, -50]);
 
   return (
     <section 
@@ -44,7 +44,7 @@ const Contact = () => {
             
             {/* Top Row: Let's create something */}
             <div className="flex items-center justify-center gap-3 md:gap-5">
-              <div className="flex  flex-col text-right font-cardo italic text-3xl md:text-4xl lg:text-6xl leading-[0.9] text-[var(--text-main)]">
+              <div className="flex  flex-col text-right font-cardo italic text-3xl md:text-4xl lg:text-6xl leading-[0.7] text-[var(--text-main)] pt-4">
                 <span>Let's</span>
                 <span>create</span>
               </div>
